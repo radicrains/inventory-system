@@ -13,7 +13,7 @@ const appsController = require('./controllers/apps.js');
 
 //CONFIGURATION
 const port = process.env.PORT || 5000;
-// const mongoURI = process.env.MONGODB_URI;
+const mongoURI = process.env.mongoURL;
 
 //MIDDLEWARE
 app.use(express.urlencoded({extended: false}));
@@ -25,7 +25,7 @@ app.use(session({
 }));
 
 //DATABASE
-mongoose.connect(`${process.env.MONGODB_URI}`, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.connection.once('open', () => {console.log(`connected to Mongo`)});
 mongoose.connection.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 mongoose.connection.on('connected', () => console.log('mongo connected: ', mongoURI));
