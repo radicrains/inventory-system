@@ -5,8 +5,11 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const app = express();
+
+//MODELS / ROUTES CONTROLLERS
 const userController = require('./controllers/users.js');
 const sessionsController = require('./controllers/sessions.js');
+const appsController = require('./controllers/apps.js');
 
 //CONFIGURATION
 const port = process.env.PORT || 7000;
@@ -40,15 +43,16 @@ app.get('/', (req,res) => {
 //User Routes via Controller
 app.use('/users', userController);
 app.use('/sessions', sessionsController);
+app.use('/apps', appsController);
 
 
-app.get('/app', (req, res)=>{
-    if(req.session.currentUser){
-        res.render('app/index.ejs');
-    } else {
-        res.redirect('/sessions/new');
-    }
-});
+// app.get('/app', (req, res)=>{
+//     if(req.session.currentUser){
+//         res.render('app/index.ejs');
+//     } else {
+//         res.redirect('/sessions/new');
+//     }
+// });
 
 app.listen(port, () => {
     console.log(`IMS starting, listening at: ${port}`);

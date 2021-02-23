@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('/mnt/c/Users/radic/projects/inventory-system/views/partials/head.ejs'); -%>
+  </head>
+  <body>
+    <div class="toolsShow">
+      
+      <div class="toolsDetails">
+        <% for(let i = 0; i < tools.length; i++){ %>
+          <h3><%=tools[i].name; %></h3>
+          <h3><%=tools[i].qty; %></h3>
+          <h3><%=tools[i].type; %></h3>
+        <% } %>
+      </div>
+    
+    </div>
+
+  </body>
+</html>
