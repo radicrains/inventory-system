@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('../partials/head.ejs'); -%>
+  </head>
+  <body>
+        <div class="header">
+            <div class="LHSheader">
+                <div class="logo">
+                    <img src="/public/img/IMSlogo.png" alt="IMSlogo" width="80vmax">
+                </div>
+                <div class="companyName">
+                    <h1>iDiDit</h1>
+                </div>
+                
+            </div>
+            <div class="RHSheader">
+                <div>
+                <a href="/apps"><img class="icon" src="/public/img/homeIcon.png" alt="HomeIcon" width="35"></a>
+                </div>
+                <div>
+                <a href="#"><img class="icon" src="/public/img/userIcon.png" alt="UserIcon" width="25"></a>
+                </div>
+                <div>
+                <form action="/sessions?_method=DELETE" method="POST">
+                    <button type="submit" class="logout"><img class="icon" src="/public/img/logout.png" alt="logout" width="30"></button>
+                </form>
+                </div>
+            </div>
+        </div> 
+
+        <div class="subsplash">
+            <div class="toolForms">
+                <form action="/apps/<%=tools.id; %>?_method=PUT" method="POST">
+                    <div class="row1">
+                        <div class="toolInputText">
+                            <label for="name">Tool Name</label>
+                            <input class="toolInput" type="text" name="name" value="<%= tools.name; %>" id="name">
+                        </div>
+
+                        <div class="toolInputText">
+                            <label for="type">Type of Tools</label>
+                            <select class="toolInput" name="type" value="<%= tools.type; %>" id="type">
+                            <option value="Power Tools">Power Tools</option>
+                            <option value="HandHeld Tools">HandHeld Tools</option>
+                            <option value="PPE">PPE</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+        
+                    <div class="row2">
+                        <div class="toolInputText">
+                            <label for="qty">Quantity</label>
+                            <input class="toolInput" type="number" name="qty" value="<%= tools.qty; %>" id="qty">
+                        </div>
+                        <div class="toolInputText">
+                            <label for="price">Price</label>
+                            <input class="toolInput" type="number" name="price" value="<%= tools.price; %>" id="price">
+                        </div>
+                    </div>
+                    
+
+                    <button class="submit" type="submit"> Update Tool </button>
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>

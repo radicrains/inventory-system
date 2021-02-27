@@ -29,29 +29,28 @@
       </div>
     </div>  
 
-
     <div class="subsplash">
-      
-      <div class="toolContainer">
-        <% for(let i = 0; i < tools.length; i++){ %>
-          <div class="toolCard">
-            <div class="toolName">
-              <h2><%=tools[i].name; %></h2>
-            </div>
-            <div class="toolImg">
-              <a href="/apps/<%=tools[i].id; %>" style="text-decoration:none;"><img src="<%=tools[i].img; %>" alt="<%=tools[i].name; %>" class="defaultimg"></a>
-            </div>
-            <div class="toolName">
-              <h4>QTY: <%=tools[i].qty; %></h4>
-            </div>
+      <div class="boxContainer">
+        <div class="row1">
+          <div class="box">
+            <a href="/apps/add"><img src="/public/img/new.png" class="cardpics" alt="Add new tool"></a>
           </div>
-          
-        <% } %>
+          <div class="box">
+            <a href="/apps/list"><img src="/public/img/inventory.png" class="cardpics" alt="View Inventory"></a>
+          </div>
+        </div>
+        
+        <div class="row2">
+          <div class="box">
+            <a href="#"><img src="/public/img/OrderForm.png" class="cardpics" alt="Create Order Form"></a>
+          </div>
+          <div class="box">
+            <a href="#"><img src="/public/img/users.png" class="cardpics" alt="View Users"></a>
+          </div>
+        </div>
       </div>
-      
-      
-    
     </div>
+    
 
   </body>
 </html>

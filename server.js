@@ -15,7 +15,10 @@ const appsController = require('./controllers/apps.js');
 const port = process.env.PORT || 5000;
 const mongoURI = process.env.mongoURL;
 
+
 //MIDDLEWARE
+app.use('/public',express.static('public'));
+
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(session({
@@ -45,14 +48,6 @@ app.use('/users', userController);
 app.use('/sessions', sessionsController);
 app.use('/apps', appsController);
 
-
-// app.get('/app', (req, res)=>{
-//     if(req.session.currentUser){
-//         res.render('app/index.ejs');
-//     } else {
-//         res.redirect('/sessions/new');
-//     }
-// });
 
 app.listen(port, () => {
     console.log(`IMS starting, listening at: ${port}`);

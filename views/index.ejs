@@ -3,28 +3,80 @@
     <head>
         <%- include('./partials/head.ejs'); -%>
     </head>
-    
     <body>
-        <div class="container">
+            <% if(!currentUser) { %>
+            <div class="header">
+                <div class="LHSheader">
+                    <div class="logo">
+                        <img src="/public/img/IMSlogo.png" alt="IMSlogo" width="80vmax">
+                    </div>
+                    <div class="companyName">
+                        <h1>iDiDit</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mainsplash">
+                <div class="companyMission">
+                    <h1> Organize all your inventory <br>
+                        with iDiDit!</h1>
+                </div>
+                <div class="row2">
+                    <div class="left">
+                        <img src="/public/img/thinking.png" alt="thinking icon">
+                    </div>
+                    <div class="middle">
+                        <div class="signUp">
+                            <a class="button" style="text-decoration:none;" href="/users/new">Sign Up</a>
+                            <a class="button" style="text-decoration:none;" href="/sessions/new">Log In</a>
+                        </div>
+                        <div class="IMSintro">
+                            <p>Our inventory management system (IMS) keeps your 
+                            inventory all in one convenient spot and lets you 
+                            seamlessly communicate with your team and create 
+                            new inventory requests. <br><br>
+
+                            Increase visibility and productivity and save money with 
+                            iDiDit!</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <img src="/public/img/stress.png" alt="stress icon">
+                    </div>
+                </div>
+                
+            </div>
+            <% } %>
+
+
             <% if(currentUser) { %>
-                <header>
+            <div class="header">
+                <div class="LHSheader">
+                    <div class="logo">
+                        <img src="/public/img/IMSlogo.png" alt="IMSlogo" width="80vmax">
+                    </div>
+                    <div class="companyName">
+                        <h1>iDiDit</h1>
+                    </div>
+                    
+                </div>
+                <div class="RHSheader">
                     <form action="/sessions?_method=DELETE" method="POST">
-                        <input type="submit" value="Logout" class="waves-effect waves-light btn"/>
+                        <button type="submit" class="logout"><img src="/public/img/logout.png" alt="logout" width="30"></button>
                     </form>
-                </header>
-                <div>
-                    <h3>Welcome <%=currentUser.username%>!</h3>
-                    <h3><a class="waves-effect waves-light btn" href="/apps">Go to Dashboard</a></h3>
+                </div>
+            </div>  
+            <div class="subsplash">
+                <div class="accountForms">
+                    <h2>Welcome <%=currentUser.username%>!</h2>
+                    <a href="/apps"><img class="icon" src="/public/img/homeIcon.png" alt="HomeIcon" width="60"></a>
                 </div>
                 
                 
-                
-            <% } else { %>
-                <h2>Please </h2>
-                <a class="waves-effect waves-light btn" href="/users/new">Sign Up</a></h2>
-                <h3>or</h3>
-                <a class="waves-effect waves-light btn" href="/sessions/new">Log In</a>
+            </div>
             <% } %>
-        </div>
+
+        
     </body>
+
 </html>

@@ -4,26 +4,26 @@
     <%- include('../partials/head.ejs'); -%>
   </head>
   <body>
-    <div class="container">
-      <h1>Create User</h1>
-
-      <div class="row">
-        <form class="col s12" action="/users" method="POST">
-          <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="Username" id="username" type="text" class="validate" name="username" required>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="Password" id="password" type="password" class="validate" name="password" required>
-            </div>
-          </div>
-
-          <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-        </form>
+    <div class="header">
+      <div class="LHSheader">
+        <div class="logo">
+          <img src="/public/img/IMSlogo.png" alt="IMSlogo" width="80vmax">
+        </div>
+        <div class="companyName">
+          <h1>iDiDit</h1>
+        </div>
       </div>
+    </div>
+
+    <div class="subsplash">
+      <form class="accountForms" action="/users" method="POST">
+        <div class="accInputText">
+          <input placeholder="Username" id="username" type="text" class="accountInput" name="username" required>
+          <input placeholder="Password" id="password" type="password" class="accountInput" name="password" required>
+        </div>
+
+        <button class="submit" type="submit" name="action">Sign Up</button>
+      </form>
     </div>
 
   </body>

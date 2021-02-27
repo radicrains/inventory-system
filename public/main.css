@@ -1,3 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
 *{
-    border: 1px solid gold
+    /* border: 1px solid gold; */
+    margin: 0;
+    font-family: 'Acme', sans-serif;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #ff914d;
+    height: 12vh;
+}
+h1{
+    font-family: 'Acme', sans-serif;
+    font-size: 400%;
+}
+.LHSheader{
+    display: flex;
+    align-items: center;
+    padding: 1vmax;
+}
+.companyName,.companyMission{
+    color: white;
+}
+
+.RHSheader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.icon{
+    padding: 0.5vmax;
+}
+
+.logout{
+    background-image: url('./img/logout.png') ;
+    background: transparent;
+    border: none;
+}
+
+.mainsplash, .subsplash{
+    height: 60vmax;
+    background-color: #383e56;
+
+}
+
+.companyMission{
+    text-align: center;
+    padding-top: 2vmax;
+}
+.row1,.row2{
+    display: flex;
+}
+
+.left,.middle,.right{
+    width: 33vmax;
+    /* height: 33vmax; */
+}
+.left,.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left>img,.right>img{
+    width: 25vmax;
+    height: 25vmax;
+}
+.middle{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    align-items: center;
+}
+.signUp{
+    height: 10vmax;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.IMSintro{
+    color: aliceblue;
+    text-align: center;
+}
+.boxContainer{
+    display: flex;
+    flex-direction: column;
+    width: 70vmax;
+    height: 40vmax;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:15vmax;
+    height:15vmax;
+    background-color: #f2f3f3;
+    border-radius: 2vmax;
+    margin: 1.5vmax;
+}
+
+.cardpics{
+    width: 10vmax;
+    height: 10vmax;
+}
+
+.IMSintro>p{
+    font-size: 2.5vmin;
+}
+
+.button {
+    padding: 1.2vmin 4vmin;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #ff914d;
+    border: none;
+    border-radius: 15px;
+    margin: 2vmax;
+}
+  
+.button:hover {
+    background-color: #3e8e41
+}
+
+.subsplash{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.accountForms{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:center;
+    width: 20vmax;
+    height: 20vmax;
+    background-color: #ff914d;
+    border-radius: 3vmin;
+    margin-top: 10vmin;
+    text-align: center;
+}
+.accInputText{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 7vmax;
+    width: 15vmax;
+    /* text-align: center; */
+    /* padding: 1vmin; */
+}
+.accountInput{
+    height: 2.5vmax;
+    border: none;
+    background-color: #d9d9d9;
+}
+
+.submit{
+    padding: 1.2vmin 4vmin;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #383e56;
+    border: none;
+    border-radius: 15px;
+    margin: 2vmax;
+}
+.submit:hover {
+    background-color: #3e8e41
+}
+
+.toolForms{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:center;
+    width: 70vmax;
+    height: 30vmax;
+    background-color: #f2f3f3;
+    border-radius: 3vmin;
+    margin-top: 10vmin;
+    text-align: center;
+}
+
+.toolInputText{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
+    height: 5vmax;
+    width: 15vmax;
+    /* text-align: center; */
+    /* padding: 1vmin; */
+    margin: 1vmax;
+}
+
+.toolInput{
+    height: 2.5vmax;
+    width: 8vmax;
+    border: 1px solid rgba(128, 128, 128, 0.534);
+    background-color: #f2f3f3;
+}
+
+.toolContainer{
+    height: 45vmax;
+    width: 90vmax;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+.toolCard{
+    width: 10vmax;
+    height: 10vmax;
+    margin: 1vmax;
+    background-color:#f2f3f3;
+    border-radius: 1vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.defaultimg{
+    width: 5.5vmax;
+    height: 5.5vmax;
+    border: 1px solid rgba(128, 128, 128, 0.534);
+    padding: 0.5vmax;
+}
+.toolDetailsCard{
+    /* width: 50vmax; */
+    /* height: 50vmax; */
+    /* margin: 1vmax; */
+    /* background-color:#f2f3f3; */
+    /* border-radius: 1vmax; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+.showimg{
+    width: 10vmax;
+    height: 10vmax;
+    border: 1px solid rgba(128, 128, 128, 0.534);
+    padding: 0.5vmax;
+}
+.userbuttons{
+    display: flex;
+    justify-content: space-evenly;
+    width: 40vmax;
 }
