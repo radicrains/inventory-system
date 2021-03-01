@@ -5,6 +5,7 @@
     /* border: 1px solid gold; */
     margin: 0;
     font-family: 'Acme', sans-serif;
+    
 }
 
 .header{
@@ -16,6 +17,7 @@
 h1{
     font-family: 'Acme', sans-serif;
     font-size: 400%;
+    color: #fff;
 }
 .LHSheader{
     display: flex;
@@ -42,9 +44,16 @@ h1{
     border: none;
 }
 
-.mainsplash, .subsplash{
-    height: 60vmax;
+/* .mainsplash, .subsplash{
+    height: 100vmax;
     background-color: #383e56;
+    background: cover;
+
+} */
+body{
+    /* height: 100vmax; */
+    background-color: #383e56;
+    /* background: cover; */
 
 }
 
@@ -135,6 +144,7 @@ h1{
     display: flex;
     /* align-items: center; */
     justify-content: center;
+
 }
 
 .accountForms{
@@ -175,9 +185,11 @@ h1{
     border-radius: 15px;
     margin: 2vmax;
 }
+
 .submit:hover {
     background-color: #3e8e41
 }
+
 
 .toolForms{
     display: flex;
@@ -220,8 +232,8 @@ h1{
     align-items: flex-start;
 }
 .toolCard{
-    width: 10vmax;
-    height: 10vmax;
+    width: 12vmax;
+    height: 12vmax;
     margin: 1vmax;
     background-color:#f2f3f3;
     border-radius: 1vmax;
@@ -230,11 +242,16 @@ h1{
     align-items: center;
     justify-content: center;
 }
+.toolName, .toolsdetails{
+    font-size: 1vmax;
+}
 .defaultimg{
     width: 5.5vmax;
     height: 5.5vmax;
     border: 1px solid rgba(128, 128, 128, 0.534);
+    margin: 0.5vmax;
     padding: 0.5vmax;
+    background-color: #fff;
 }
 .toolDetailsCard{
     /* width: 50vmax; */
@@ -252,7 +269,7 @@ h1{
     width: 10vmax;
     height: 10vmax;
     border: 1px solid rgba(128, 128, 128, 0.534);
-    padding: 0.5vmax;
+    margin: 0.5vmax;
 }
 .userbuttons{
     display: flex;

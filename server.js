@@ -10,6 +10,8 @@ const app = express();
 const userController = require('./controllers/users.js');
 const sessionsController = require('./controllers/sessions.js');
 const appsController = require('./controllers/apps.js');
+// const seedController = require('./controllers/seed.js');
+
 
 //CONFIGURATION
 const port = process.env.PORT || 5000;
@@ -28,7 +30,7 @@ app.use(session({
 }));
 
 //DATABASE
-mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 mongoose.connection.once('open', () => {console.log(`connected to Mongo`)});
 mongoose.connection.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 mongoose.connection.on('connected', () => console.log('mongo connected: ', mongoURI));
@@ -47,6 +49,7 @@ app.get('/', (req,res) => {
 app.use('/users', userController);
 app.use('/sessions', sessionsController);
 app.use('/apps', appsController);
+// app.use('/seed', seedController);
 
 
 app.listen(port, () => {

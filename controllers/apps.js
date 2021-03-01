@@ -2,6 +2,7 @@ const express = require('express');
 const apps = express.Router();
 
 const Tools = require('../models/tools.js');
+const seedController = require('./seed.js');
 
 
 apps.get('/', (req, res)=>{
@@ -12,6 +13,8 @@ apps.get('/', (req, res)=>{
     }
 });
 
+//User Routes via Controller
+apps.use('/seed', seedController);
 
 //CREATE A FORM FOR ADDING IN NEW TOOL
 apps.get('/add', (req, res) => {
@@ -50,6 +53,12 @@ apps.delete('/:id',(req,res) => {
         res.redirect('/apps/list');
     });
 });
+
+// apps.delete('/list',(req,res) => {
+//     Tools.remove({}, (err, data) => {
+//         res.redirect('/apps');
+//     });
+// });
 
 //CREATE EDIT ROUTE
 apps.get('/:id/edit', (req, res) => {
