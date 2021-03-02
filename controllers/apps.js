@@ -49,7 +49,9 @@ apps.get('/add', (req, res) => {
 });
 
 apps.post('/list', (req,res) => {
+    // console.log('hello');
     Tools.create(req.body, (err, createTool) => {
+        // console.log(createTool)
         res.redirect('/apps');
     });
     
@@ -72,6 +74,19 @@ apps.get('/list', isAuthenticated, (req, res) => {
     //     });
     // });
 });
+
+//GENERATE ORDER FORM
+apps.get('/orderForm', isAuthenticated, (req, res) => {
+    User.findById(req.session.currentUser._id, (err, foundUser) => {
+        Tools.find({qty: {$lt:10}}, (err,orderTool) => {
+            // console.log(orderTool);
+            res.render('apps/orderForm.ejs', {
+                tools: orderTool,
+                user: foundUser,
+            });
+        });
+    });
+})
 
 
 // CREATE SHOW ROUTE
@@ -122,5 +137,17 @@ apps.put('/:id', isAuthenticated, (req, res) => {
         }
     });
 });
+
+//RESTOCK 
+apps.post('/:id', (req,res) => {
+    Tools.findByIdAndUpdate(req.params.id, {$inc: {qty: +5}},{new:true}, (err, updateToolQty) => {
+        if(err) {
+            console.log(err.message);
+        } else {
+            res.redirect('/apps/'+req.params.id);
+        }
+    });
+});
+
 
 module.exports = apps;

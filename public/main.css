@@ -61,7 +61,7 @@ body{
     text-align: center;
     padding-top: 2vmax;
 }
-.row1,.row2, .row3{
+.row1,.row2, .row3, .row{
     display: flex;
 }
 
@@ -125,15 +125,15 @@ body{
 }
 
 .button {
-    padding: 1.2vmin 4vmin;
+    padding: 0.5vmax 1vmax;
     text-align: center;
     cursor: pointer;
     outline: none;
     color: #fff;
     background-color: #ff914d;
     border: none;
-    border-radius: 15px;
-    margin: 2vmax;
+    border-radius: 1vmax;
+    margin: 1vmax;
 }
   
 .button:hover {
@@ -197,7 +197,7 @@ body{
     justify-content: space-around;
     align-items:center;
     width: 70vmax;
-    height: 30vmax;
+    height: 35vmax;
     background-color: #f2f3f3;
     border-radius: 3vmin;
     margin-top: 10vmin;
@@ -282,4 +282,42 @@ body{
 }
 #toolImgInput{
     width: 35vmax;
+}
+
+.toolListContainer{
+    background-color: #f2f3f3;
+    border-radius: 1vmax;
+    padding: 1vmax;
+    margin-top: 2vmax;
+}
+
+.toolListCard{
+    display:flex;
+    align-items: center;
+    border: 1px solid rgba(128, 128, 128, 0.534);
+    width: 80vmax;
+    /* background-color: #f2f3f3;*/
+    border-radius: 0.5vmax; 
+} 
+table, th, td{
+    border: 1px solid rgba(128, 128, 128, 0.534);
+    /* padding: 1vmax; */
+    text-align: center;
+}
+
+th,td{
+    width: 10vmax;
+}
+
+.actionCol{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userbuttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

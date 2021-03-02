@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('../partials/head.ejs'); -%>
+  </head>
+  <body>
+    <div class="header">
+      <div class="LHSheader">
+          <div class="logo">
+              <img src="/public/img/IMSlogo.png" alt="IMSlogo" width="80vmax">
+          </div>
+          <div class="companyName">
+            <a href="/apps" style="text-decoration:none;"><h1>iDiDit</h1></a>
+          </div>
+          
+      </div>
+      <div class="RHSheader">
+          <div>
+            <a href="/apps"><img class="icon" src="/public/img/homeIcon.png" alt="HomeIcon" width="35"></a>
+          </div>
+          <div>
+            <a href="/sessions/<%= user._id %>"><img class="icon" src="/public/img/userIcon.png" alt="UserIcon" width="25"></a>
+          </div>
+          <div>
+            <form action="/sessions?_method=DELETE" method="POST">
+                <button type="submit" class="logout"><img class="icon" src="/public/img/logout.png" alt="logout" width="30"></button>
+            </form>
+          </div>
+      </div>
+    </div>  
+
+    <div class="subsplash">
+      
+      <div class="toolListContainer">
+          <h2>Tools that requires your attention to buy: </h2><br>
+          <table>
+            <thead>
+                <tr>
+                  <th>S/N</th>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Price</th>
+                  <th>Qty</th>
+                  <th>Action</th>
+                </tr>
+            </thead>
+            <tbody> 
+                <% for(i=0; i<tools.length; i++) { %>
+                <tr>
+                  <td><%= [i+1] %></td>
+                  <td><img src="<%=tools[i].img; %>" alt="<%=tools[i].name; %>" width="100vmax"/></td>
+                  <td><%=tools[i].name; %></td>
+                  <td><%=tools[i].type; %></td>
+                  <td>$ <%=tools[i].price; %></td>
+                  <td><%=tools[i].qty; %></td>
+                  <td><a class="button actionCol" href="/apps/<%=tools[i].id; %>/" style="text-decoration:none;"><h5>RE-STOCK?</h5></a></td>
+                </tr>
+                <% } %>
+            </tbody> 
+          </table>
+        </div>
+    </div>
+  </body>
+</html>
