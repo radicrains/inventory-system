@@ -61,7 +61,7 @@ body{
     text-align: center;
     padding-top: 2vmax;
 }
-.row1,.row2{
+.row1,.row2, .row3{
     display: flex;
 }
 
@@ -210,7 +210,7 @@ body{
     justify-content: space-between;
     align-items: center;
     height: 5vmax;
-    width: 15vmax;
+    width: 13vmax;
     /* text-align: center; */
     /* padding: 1vmin; */
     margin: 1vmax;
@@ -275,4 +275,11 @@ body{
     display: flex;
     justify-content: space-evenly;
     width: 40vmax;
+}
+
+#toolImgInputText{
+    width: 40vmax;
+}
+#toolImgInput{
+    width: 35vmax;
 }

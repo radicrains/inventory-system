@@ -12,19 +12,19 @@
                 <div class="companyName">
                     <a href="/apps" style="text-decoration:none;"><h1>iDiDit</h1></a>
                 </div>
-                
             </div>
+
             <div class="RHSheader">
                 <div>
-                <a href="/apps"><img class="icon" src="/public/img/homeIcon.png" alt="HomeIcon" width="35"></a>
+                    <a href="/apps"><img class="icon" src="/public/img/homeIcon.png" alt="HomeIcon" width="35"></a>
                 </div>
                 <div>
-                <a href="#"><img class="icon" src="/public/img/userIcon.png" alt="UserIcon" width="25"></a>
+                    <a href="/sessions/<%= user._id %>"><img class="icon" src="/public/img/userIcon.png" alt="UserIcon" width="25"></a>
                 </div>
                 <div>
-                <form action="/sessions?_method=DELETE" method="POST">
-                    <button type="submit" class="logout"><img class="icon" src="/public/img/logout.png" alt="logout" width="30"></button>
-                </form>
+                    <form action="/sessions?_method=DELETE" method="POST">
+                        <button type="submit" class="logout"><img class="icon" src="/public/img/logout.png" alt="logout" width="30"></button>
+                    </form>
                 </div>
             </div>
         </div> 
@@ -57,6 +57,12 @@
                         <div class="toolInputText">
                             <label for="price">Price</label>
                             <input class="toolInput" type="number" name="price" value="<%= tools.price; %>" id="price">
+                        </div>
+                    </div>
+                    <div class="row3">
+                        <div class="toolInputText" id="toolImgInputText">
+                            <label for="img">Tool Image</label>
+                            <input class="toolInput" id="toolImgInput" type="text" name="img" value="<%= tools.img; %>" id="img">
                         </div>
                     </div>
                     

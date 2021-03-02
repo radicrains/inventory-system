@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head.ejs'); -%>
+  </head>
+  <body>
+    <div class="header">
+      <div class="LHSheader">
+        <div class="logo">
+            <img src="/public/img/IMSlogo.png" alt="IMSlogo" width="80vmax">
+        </div>
+        <div class="companyName">
+            <a href="/apps" style="text-decoration:none;"><h1>iDiDit</h1></a>
+        </div>
+      </div>
+      <div class="RHSheader">
+        <div>
+          <a href="/apps"><img class="icon" src="/public/img/homeIcon.png" alt="HomeIcon" width="35"></a>
+        </div>
+        <div>
+          <a href="/sessions/<%= user._id %>"><img class="icon" src="/public/img/userIcon.png" alt="UserIcon" width="25"></a>
+        </div>
+        <div>
+          <form action="/sessions?_method=DELETE" method="POST">
+              <button type="submit" class="logout"><img class="icon" src="/public/img/logout.png" alt="logout" width="30"></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsplash">
+      <div class="toolForms">
+        <h1 style="color: black;">Hello, <%= user.username %></h1>
+        <a href="/sessions/<%= user._id %>/edit" class="button"  style="text-decoration:none;"><h4>Update Info</h4></a>
+
+        <!--  ADD DELETE FORM HERE-->
+        <form action="/sessions/<%= user._id %>?_method=DELETE" method="POST">
+          <button class="button" type="submit"><h4>Delete Account</h4></button>
+        </form>
+        <!-- <a href="/sessions/<%= user._id %>/edit" class="button"  style="text-decoration:none;"><h4>Delete Account</h4></a> -->
+        <!-- <h1><%= user.password %></h1> -->
+      </div>
+    </div>
+  </body>
+</html>

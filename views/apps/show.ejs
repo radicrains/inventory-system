@@ -16,15 +16,15 @@
       </div>
       <div class="RHSheader">
           <div>
-          <a href="/apps"><img class="icon" src="/public/img/homeIcon.png" alt="HomeIcon" width="35"></a>
+            <a href="/apps"><img class="icon" src="/public/img/homeIcon.png" alt="HomeIcon" width="35"></a>
           </div>
           <div>
-          <a href="#"><img class="icon" src="/public/img/userIcon.png" alt="UserIcon" width="25"></a>
+            <a href="/sessions/<%= user._id %>"><img class="icon" src="/public/img/userIcon.png" alt="UserIcon" width="25"></a>
           </div>
           <div>
-          <form action="/sessions?_method=DELETE" method="POST">
-              <button type="submit" class="logout"><img class="icon" src="/public/img/logout.png" alt="logout" width="30"></button>
-          </form>
+            <form action="/sessions?_method=DELETE" method="POST">
+                <button type="submit" class="logout"><img class="icon" src="/public/img/logout.png" alt="logout" width="30"></button>
+            </form>
           </div>
       </div>
     </div>  

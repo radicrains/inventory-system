@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <%- include('../partials/head.ejs'); -%>
   </head>
@@ -27,36 +27,28 @@
           </form>
         </div>
       </div>
-    </div>  
-
-
-    <div class="subsplash">
-      <!--  ADD DELETE FORM HERE-->
-<!-- 
-      <form action="/apps/list?_method=DELETE" method="POST">
-        <button class="button" type="submit"><h4>DELETE ALL</h4></button>
-      </form> -->
-      
-      <div class="toolContainer">
-        <% for(let i = 0; i < tools.length; i++){ %>
-          <div class="toolCard">
-            <div class="toolName">
-              <h3><%=tools[i].name; %></h3>
-            </div>
-            <div class="toolImg">
-              <a href="/apps/<%=tools[i].id; %>" style="text-decoration:none;"><img src="<%=tools[i].img; %>" alt="<%=tools[i].name; %>" class="defaultimg"></a>
-            </div>
-            <div class="toolName">
-              <h4>QTY: <%=tools[i].qty; %></h4>
-            </div>
-          </div>
-          
-        <% } %>
-      </div>
-      
-      
-    
     </div>
 
+    <div class="subsplash">
+      <form class="toolForms" action="/sessions/<%=user._id; %>?_method=PUT" method="POST">
+        <div class="row1">
+          <div class="toolInputText">
+            <label for="username">New Username</label>
+            <input value="<%= user.username %>" id="username" type="text" class="accountInput" name="username">
+          </div>
+          
+        </div>
+
+        <!-- <div class="row2">
+          <div class="toolInputText">
+            <label for="password">New Password</label>
+            <input placeholder="Password" id="password" type="password" class="accountInput" name="password">
+          </div>
+        </div> -->
+
+        <button class="submit" type="submit">Update Info</button>
+          
+      </form>
+    </div>
   </body>
 </html>
