@@ -3,7 +3,8 @@ const apps = express.Router();
 
 const Tools = require('../models/tools.js');
 const User = require('../models/users.js');
-const seedController = require('./seed.js');
+const seedToolsController = require('./seedTools.js');
+const seedUserController = require('./seedUser.js');
 
 
 const isAuthenticated = (req, res, next) => {
@@ -23,20 +24,22 @@ const isAuthenticated = (req, res, next) => {
 // });
 
 apps.get('/', isAuthenticated, (req, res)=>{
-    if(req.session.currentUser){
+    // if(req.session.currentUser){
         User.findById(req.session.currentUser._id, (err, foundUser) => {
             res.render('apps/dashboard.ejs', {
                 user: foundUser,
             });
         });
-    } else {
-        res.redirect('/sessions/new');
-    }
+    // } else {
+        // res.redirect('/sessions/new');
+    // }
 });
 
 
 //User Routes via Controller
-apps.use('/seed', seedController);
+apps.use('/seedTools', seedToolsController);
+apps.use('/seedUsers', seedUserController);
+
 
 //CREATE A FORM FOR ADDING IN NEW TOOL
 apps.get('/add', (req, res) => {
@@ -58,7 +61,7 @@ apps.post('/list', (req,res) => {
 });
 
 
-// CREATE INDEX ROUTE
+// INDEX ROUTE
 apps.get('/list', isAuthenticated, (req, res) => {
     User.findById(req.session.currentUser._id, (err, foundUser) => {
         Tools.find({}, (err, allTools) => {
@@ -80,7 +83,7 @@ apps.get('/orderForm', isAuthenticated, (req, res) => {
     User.findById(req.session.currentUser._id, (err, foundUser) => {
         Tools.find({qty: {$lt:10}}, (err,orderTool) => {
             // console.log(orderTool);
-            res.render('apps/orderForm.ejs', {
+            res.render('apps/order.ejs', {
                 tools: orderTool,
                 user: foundUser,
             });
@@ -88,22 +91,33 @@ apps.get('/orderForm', isAuthenticated, (req, res) => {
     });
 })
 
-
-// CREATE SHOW ROUTE
-apps.get('/:id', isAuthenticated, (req, res) => {
+//RE-STOCK FORM
+apps.get('/orderForm/:id', isAuthenticated, (req, res) => {
     User.findById(req.session.currentUser._id, (err, foundUser) => {
-        Tools.findById(req.params.id, (err, foundTool) => {
-            res.render('apps/show.ejs', {
+        Tools.findById(req.params.id, (err,foundTool) => {
+            res.render('apps/restock.ejs', {
                 tools: foundTool,
                 user: foundUser,
             });
         });
     });
-    
 });
 
+apps.post('/orderForm/:id', (req,res) => {
+    Tools.findByIdAndUpdate(req.params.id, {$inc: {qty: +5}},{new:true}, (err, updateToolQty) => {
+        if(err) {
+            console.log(err.message);
+        } else {
+            res.redirect('/apps/orderForm/'+req.params.id);
+        }
+    });
+});
+
+
+
+
 //CREATE DELETE ROUTE
-apps.delete('/:id',isAuthenticated, (req,res) => {
+apps.delete('/:id', (req,res) => {
     Tools.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect('/apps/list');
     });
@@ -128,7 +142,7 @@ apps.get('/:id/edit', isAuthenticated, (req, res) => {
     
 });
 
-apps.put('/:id', isAuthenticated, (req, res) => {
+apps.put('/:id', (req, res) => {
     Tools.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updateTool) => {
         if(err) {
             console.log(err.message);
@@ -138,9 +152,59 @@ apps.put('/:id', isAuthenticated, (req, res) => {
     });
 });
 
+
 //RESTOCK 
+// apps.get('/:id/restock', isAuthenticated, (req, res) => {
+//     User.findById(req.session.currentUser._id, (err, foundUser) => {
+//         Tools.findById(req.params.id, (err,foundTool) => {
+//             res.render('apps/restock.ejs', {
+//                 tools: foundTool,
+//                 user: foundUser,
+//             });
+//         });
+//     });
+    
+// });
+
+// apps.post('/:id/restock', (req,res) => {
+//     Tools.findByIdAndUpdate(req.params.id, {$inc: {qty: +5}},{new:true}, (err, updateToolQty) => {
+//         if(err) {
+//             console.log(err.message);
+//         } else {
+//             res.redirect('/apps/orderForm');
+//         }
+//     });
+// });
+
+
+
+
+// //CHECKOUT
+// apps.post('/:id', (req,res) => {
+//     Tools.findByIdAndUpdate(req.params.id, {$inc: {qty: -1}},{new:true}, (err, updateToolQty) => {
+//         if(err) {
+//             console.log(err.message);
+//         } else {
+//             res.redirect('/apps/'+req.params.id);
+//         }
+//     });
+// });
+
+// CREATE SHOW ROUTE
+apps.get('/:id', isAuthenticated, (req, res) => {
+    User.findById(req.session.currentUser._id, (err, foundUser) => {
+        Tools.findById(req.params.id, (err, foundTool) => {
+            res.render('apps/show.ejs', {
+                tools: foundTool,
+                user: foundUser,
+            });
+        });
+    });
+});
+
+//CHECKOUT
 apps.post('/:id', (req,res) => {
-    Tools.findByIdAndUpdate(req.params.id, {$inc: {qty: +5}},{new:true}, (err, updateToolQty) => {
+    Tools.findByIdAndUpdate(req.params.id, {$inc: {qty: -1}},{new:true}, (err, updateToolQty) => {
         if(err) {
             console.log(err.message);
         } else {
@@ -148,6 +212,5 @@ apps.post('/:id', (req,res) => {
         }
     });
 });
-
 
 module.exports = apps;

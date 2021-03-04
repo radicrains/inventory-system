@@ -31,23 +31,33 @@
 
     <div class="subsplash">
       <div class="boxContainer">
-        <div class="row1">
-          <div class="box">
-            <a href="/apps/add"><img src="/public/img/new.png" class="cardpics" alt="Add new tool"></a>
+               
+        <% if(user.role === 'admin') { %>
+          <div class="row1">
+            <div class="box">
+              <a href="/apps/add"><img src="/public/img/new.png" class="cardpics" alt="Add new tool"></a>
+            </div>
+            <div class="box">
+              <a href="/apps/list"><img src="/public/img/inventory.png" class="cardpics" alt="View Inventory"></a>
+            </div>
           </div>
-          <div class="box">
-            <a href="/apps/list"><img src="/public/img/inventory.png" class="cardpics" alt="View Inventory"></a>
-          </div>
-        </div>
-        
         <div class="row2">
           <div class="box">
             <a href="/apps/orderForm"><img src="/public/img/OrderForm.png" class="cardpics" alt="Create Order Form"></a>
           </div>
-          <!-- <div class="box">
-            <a href="#"><img src="/public/img/users.png" class="cardpics" alt="View Users"></a>
-          </div> -->
+          <div class="box">
+            <a href="/users/all"><img src="/public/img/users.png" class="cardpics" alt="View Users"></a>
+          </div>
         </div>
+        
+        <% } else { %>
+          <div class="row1">
+            <div class="box">
+              <a href="/apps/list"><img src="/public/img/inventory.png" class="cardpics" alt="View Inventory"></a>
+            </div>
+          </div>
+        <% } %>
+
       </div>
     </div>
     

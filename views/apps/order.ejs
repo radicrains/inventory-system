@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <%- include('../partials/head.ejs'); -%>
+    <%- include('/mnt/c/Users/radic/projects/inventory-system/views/partials/head.ejs'); -%>
+    
   </head>
   <body>
     <div class="header">
@@ -36,7 +37,7 @@
           <table>
             <thead>
                 <tr>
-                  <th>S/N</th>
+                  <th class="snHeader">S/N</th>
                   <th>Image</th>
                   <th>Name</th>
                   <th>Type</th>
@@ -48,13 +49,18 @@
             <tbody> 
                 <% for(i=0; i<tools.length; i++) { %>
                 <tr>
-                  <td><%= [i+1] %></td>
+                  <td class="snHeader"><%= [i+1] %></td>
                   <td><img src="<%=tools[i].img; %>" alt="<%=tools[i].name; %>" width="100vmax"/></td>
                   <td><%=tools[i].name; %></td>
                   <td><%=tools[i].type; %></td>
                   <td>$ <%=tools[i].price; %></td>
                   <td><%=tools[i].qty; %></td>
-                  <td><a class="button actionCol" href="/apps/<%=tools[i].id; %>/" style="text-decoration:none;"><h5>RE-STOCK?</h5></a></td>
+                  <td><a class="button actionCol" href="/apps/orderForm/<%=tools[i].id; %>" style="text-decoration:none;"><h5>RE-STOCK?</h5></a></td>
+                  <!-- <td>
+                    <form action="/apps/orderForm/<%=tools.id; %>" method="POST">
+                      <button class="button" type="submit"><h3>RE-STOCK</h3></button>
+                    </form>
+                  </td> -->
                 </tr>
                 <% } %>
             </tbody> 

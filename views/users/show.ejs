@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('../partials/head.ejs'); -%>
+  </head>
+  <body>
+    <div class="header">
+      <div class="LHSheader">
+          <div class="logo">
+              <img src="/public/img/IMSlogo.png" alt="IMSlogo" width="80vmax">
+          </div>
+          <div class="companyName">
+            <a href="/apps" style="text-decoration:none;"><h1>iDiDit</h1></a>
+          </div>
+          
+      </div>
+      <div class="RHSheader">
+          <div>
+            <a href="/apps"><img class="icon" src="/public/img/homeIcon.png" alt="HomeIcon" width="35"></a>
+          </div>
+          <div>
+            <a href="/sessions/<%= user._id %>"><img class="icon" src="/public/img/userIcon.png" alt="UserIcon" width="25"></a>
+          </div>
+          <div>
+            <form action="/sessions?_method=DELETE" method="POST">
+                <button type="submit" class="logout"><img class="icon" src="/public/img/logout.png" alt="logout" width="30"></button>
+            </form>
+          </div>
+      </div>
+    </div>  
+
+    <div class="subsplash">
+      
+      <div class="toolListContainer">
+          <h2>User accounts in your company: </h2><br>
+          <table>
+            <thead>
+                <tr>
+                  <th class="snHeader">S/N</th>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th class="userActions">Action</th>
+                </tr>
+            </thead>
+            <tbody> 
+                <% for(i=0; i<users.length; i++) { %>
+                <tr>
+                  <td class="snHeader"><%= [i+1] %></td>
+                  
+                  <td><%=users[i].username; %></td>
+                  <td><%=users[i].role; %></td>
+
+                  <td class="userActions">
+                    <div class="row">
+                      <a class="button actionCol" href="/users/<%=users[i].id; %>/edit" style="text-decoration:none;"><h5>Edit User</h5></a> 
+                    </div>
+                    <div class="row">
+                      <a class="button actionCol" href="/users/<%=users[i].id; %>/edit/password" style="text-decoration:none;"><h5>Edit Password</h5></a> 
+                    </div>
+                    <div class="row">
+                      <form action="/users/<%= users[i]._id %>?_method=DELETE" method="POST">
+                        <button class="button actionCol" type="submit"><h4>Delete</h4></button>
+                      </form>
+                    </div>
+                    
+                  </td>
+
+                </tr>
+                <% } %>
+            </tbody> 
+          </table>
+        </div>
+    </div>
+  </body>
+</html>

@@ -53,34 +53,14 @@
 
         <div class="userbuttons">
           <div class="row">
-            <a href="/apps/list" class="button"  style="text-decoration:none;"><h4>BACK TO INVENTORY</h4></a>
-
-            <% if(tools.qty === 0) { %>
-              <h3 class="button">OUT OF STOCK</h3>
-            <% } else { %>
-            <form action="/apps/<%=tools.id; %>" method="POST">
-              <button class="button" type="submit"><h3>CHECKOUT</h3></button>
-            </form>
-            <% } %>
+            <a href="/apps/orderForm" class="button"  style="text-decoration:none;"><h4>BACK TO ORDER FORM</h4></a>
           </div>
           
-          <!-- <% if(user.role === 'admin') { %> -->
           <div class="row">
-            <!--  ADD RE-STOCK HERE-->
-            <!-- <form action="/apps/<%=tools.id; %>" method="POST">
+            <form action="/apps/orderForm/<%=tools.id; %>" method="POST">
               <button class="button" type="submit"><h3>RE-STOCK</h3></button>
-            </form> -->
-
-            <!--  ADD EDIT HERE-->
-            <a class="button" href="/apps/<%=tools.id; %>/edit" style="text-decoration:none;"><h4>EDIT</h4></a>
-
-            <!--  ADD DELETE FORM HERE-->
-            <form action="/apps/<%=tools.id; %>?_method=DELETE" method="POST">
-              <button class="button" type="submit"><h3>DELETE</h3></button>
-            </form> 
-
+            </form>
           </div>
-          <!-- <% } %> -->
 
         </div> 
 

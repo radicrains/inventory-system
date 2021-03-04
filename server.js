@@ -10,6 +10,7 @@ const app = express();
 const userController = require('./controllers/users.js');
 const sessionsController = require('./controllers/sessions.js');
 const appsController = require('./controllers/apps.js');
+// const appsUserController = require('./controllers/appsUser.js');
 // const seedController = require('./controllers/seed.js');
 
 
@@ -49,6 +50,7 @@ app.get('/', (req,res) => {
 app.use('/users', userController);
 app.use('/sessions', sessionsController);
 app.use('/apps', appsController);
+// app.use('/appsUser', appsUserController);
 // app.use('/seed', seedController);
 
 

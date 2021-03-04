@@ -44,6 +44,10 @@ h1{
     border: none;
 }
 
+.logout:hover{
+    cursor: pointer;
+}
+
 /* .mainsplash, .subsplash{
     height: 100vmax;
     background-color: #383e56;
@@ -63,6 +67,7 @@ body{
 }
 .row1,.row2, .row3, .row{
     display: flex;
+    /* flex-direction: row; */
 }
 
 .left,.middle,.right{
@@ -210,7 +215,7 @@ body{
     justify-content: space-between;
     align-items: center;
     height: 5vmax;
-    width: 13vmax;
+    width: max-content;
     /* text-align: center; */
     /* padding: 1vmin; */
     margin: 1vmax;
@@ -313,6 +318,7 @@ th,td{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: max-content;
 }
 
 .userbuttons{
@@ -321,3 +327,14 @@ th,td{
     justify-content: center;
     align-items: center;
 }
+
+.userActions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23vmax;
+}
+.snHeader{
+    width: 3vmax;
+}
+
