@@ -33,6 +33,9 @@
 
         <div class="subsplash">
             <div class="toolForms">
+                <div class="returnDiv">
+                    <a class="button returnbuttons" href="/apps/<%=tools.id; %>" style="text-decoration:none;"><h4>BACK</h4></a>
+                </div>
                 <form action="/apps/<%=tools.id; %>?_method=PUT" method="POST">
                     <div class="row1">
                         <div class="toolInputText">
@@ -64,6 +67,7 @@
                     <div class="row3">
                         <div class="toolInputText" id="toolImgInputText">
                             <label for="img">Tool Image</label>
+                            <!-- <input class="toolInput" type="file" name="img" value="<%= tools.img; %>" id="img"> -->
                             <input class="toolInput" id="toolImgInput" type="text" name="img" value="<%= tools.img; %>" id="img">
                         </div>
                     </div>

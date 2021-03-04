@@ -139,6 +139,7 @@ body{
     border: none;
     border-radius: 1vmax;
     margin: 1vmax;
+    
 }
   
 .button:hover {
@@ -338,3 +339,16 @@ th,td{
     width: 3vmax;
 }
 
+.returnbuttons{
+    display: flex;
+    flex-direction: column;
+    width: 10vmax;
+    margin: 0;
+    margin-right: 1vmax;
+
+}
+.returnDiv{
+    width: inherit;
+    display: flex;
+    justify-content: flex-end;
+}
