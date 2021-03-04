@@ -4,10 +4,7 @@
 iDiDit is an inventory management application here admin is able to keep track & manage store's inventory.
 
 ## Links
-[Application Link](https://ididit-ims.herokuapp.com/ "iDiDit Main Page")
-
-## Database / Storage
-* MongoDB is a document-oriented which stores data in JASON-like document with dynamic schema
+[Application Link](https://ididit-ims.herokuapp.com/ "iDiDit Application")
 
 ## Technologies
 * _EJS_ is used to generate HTML with plain javascript to append to frontend.
@@ -43,10 +40,10 @@ The objective of the project is to build a working full CRUD (Create, Read, Upda
 <img src="public/readMe Images/landing page.png"/>
 
 * ### Sign up / Log in Page
-<img src="public/readMe Images/landing page.png"/>
+<img src="public/readMe Images/signin&login.png"/>
 
 * ### Welcome Page
-<img src="public/readMe Images/signin&login.png"/>
+<img src="public/readMe Images/greetingspage.png"/>
 
 * ### Dashboard
 | Admin's       | User's        |
