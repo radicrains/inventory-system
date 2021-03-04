@@ -71,3 +71,7 @@ The objective of the project is to build a working full CRUD (Create, Read, Upda
 
 * ### Account Control Page (admin only)
 <img src="public/readMe Images/adminUserControl.png"/>
+
+
+## RESTful Routes
+<img src="public/readMe Images/RESTfulRoutes.png"/>
