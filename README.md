@@ -2,9 +2,10 @@
 
 ## APPLICATION DESCRIPTION
 iDiDit is an inventory management application here admin is able to keep track & manage store's inventory.
+This app was design & build on administration storyline. Deeper User storyline is a future improvement for this app.
 
 ## APPLICATION LINK
-[Application Link](https://ididit-ims.herokuapp.com/ "iDiDit Application")
+[iDiDit - Inventory Management System](https://ididit-ims.herokuapp.com/ "iDiDit Application")
 
 ## TECHNOLOGIES
 * _Express_ is a backend web application framework for Node.js
